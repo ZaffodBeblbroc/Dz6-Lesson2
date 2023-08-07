@@ -1,0 +1,59 @@
+.item {
+  width: $width;
+  min-height: $width * 1.5;
+  background-color: $primaryColor;
+  overflow: hidden;
+  border: 2px solid $secondaryColor;
+  border-radius: 15px;
+  
+  .img {
+    width: 100%;
+    height: $width / 2;
+    &-full {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &-title {
+    margin: 0px 10px;
+    font-size: $size * 1.5;
+  }
+
+  &-description {
+    margin: 0px 10px;
+    font-size: $size;
+  }
+
+  &-price { 
+    margin-left: 10px;
+    padding: 0px 0px 20px;
+    border-top: 1px solid $tertiaryColor;
+    background-color: $secondaryColor;
+    text-align: center;
+    font-size: $size;
+  }
+
+  &-rating {
+    margin-right: 10px;
+    padding: 0px 0px 20px;
+    border-top: 1px solid $tertiaryColor;
+    background-color: $secondaryColor;
+    text-align: center;
+    font-size: $size;
+  }
+
+  &-button {
+    margin: 10px;
+    padding: $size / 3;
+    background-color: rgb(80, 80, 252);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: $size;
+    &:hover {
+      background-color: darken($color: rgb(80, 80, 252), $amount: 50%)
+    }
+  }
+}

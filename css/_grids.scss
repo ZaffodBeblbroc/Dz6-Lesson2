@@ -1,0 +1,36 @@
+.item {
+  display: grid;
+  align-content: space-between;
+  grid-template-columns: repeat(2, 1fr);
+
+  .img {
+    grid-column: 1/3 ;
+    grid-row: 1;
+  }
+
+  &-title {
+    grid-column: 1/3 ;
+    grid-row: 2;
+  }
+
+  &-description {
+    grid-column: 1/3 ;
+    grid-row: 3;
+    grid-row: 1fr;
+  }
+
+  &-price { 
+    grid-column: 1/2 ;
+    grid-row: 4;
+  }
+
+  &-rating {
+    grid-column: 2/3 ;
+    grid-row: 4;
+  }
+
+  &-button {
+    grid-column: 1/3 ;
+    grid-row: 5;
+  }
+}

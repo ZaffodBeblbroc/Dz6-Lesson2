@@ -1,0 +1,39 @@
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $secondaryColor;
+  padding: 10px 40px;
+  position: fixed;
+  width: 100%;
+
+  &-title {
+    font-size: $size * 2;
+  }
+
+  .button-cart{
+    padding: 5px 10px;
+    font-size: $size;
+    color: white;
+    background-color: $colorMenu;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .text {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+  }
+
+  .button-search{
+    padding: 5px 10px;
+    font-size: $size;
+    color: $colorMenu;
+    background-color: white;
+    border: 2px solid $colorMenu;
+    border-radius: 5px;
+  }
+}

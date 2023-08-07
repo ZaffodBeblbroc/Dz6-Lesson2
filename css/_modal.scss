@@ -1,0 +1,34 @@
+.modal {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+
+  
+  &-content {
+    padding: 10px;
+    background-color: aquamarine;
+    max-width: 500px;
+    height: 100Vh;
+    border: 2px solid black;
+  }
+
+  .close {
+    float: right;
+    border: none;
+    font-size: 30px;
+    font-weight: bolder;
+    background-color: aquamarine;
+    color: crimson;
+    cursor: pointer;
+  }
+}
+
+.open {
+  display: block;
+}

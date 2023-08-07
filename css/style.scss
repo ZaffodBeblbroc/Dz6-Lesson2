@@ -1,0 +1,42 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+$primaryColor: rgb(255, 255, 255);
+$secondaryColor: rgb(220, 220, 220);
+$tertiaryColor: rgb(140, 140, 140);
+$colorMenu: rgb(33, 70, 33);
+$width: 250px;
+$size: 15px;
+
+main {
+  max-width: 1200px;
+  margin: 0px auto;
+  padding-top: 100px;
+  background-color: $primaryColor;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: $size * 3;
+}
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+
+  * {
+    margin: 0px;
+    padding: 0px;
+  }
+}
+
+@import "_grids";
+@import "_item";
+@import "_menu";
+@import "_modal";
