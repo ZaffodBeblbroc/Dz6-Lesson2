@@ -9,13 +9,38 @@
   overflow-y: auto;
   background-color: rgba(0, 0, 0, 0.6);
 
-  
   &-content {
     padding: 10px;
     background-color: aquamarine;
     max-width: 500px;
     height: 100Vh;
     border: 2px solid black;
+  }
+
+  &-list {
+    margin: 20px;
+    padding: 10px;
+    width: 400px;
+    min-height: 200px;
+    max-height: 600px;
+    width: 400px;
+    list-style: none;
+    background-color: brown;
+    overflow: scroll;
+
+    &-element {
+      margin: 8px;
+      padding: 4px;
+      font-size: 24px;
+      background-color: chocolate;
+      color: rgb(255, 255, 255);
+    }
+
+    &-img {
+      width: 50px;
+      height: 50px;
+      background-color: rgb(20, 131, 228);
+    }
   }
 
   .close {

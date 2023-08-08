@@ -167,6 +167,29 @@ main {
   height: 100Vh;
   border: 2px solid black;
 }
+.modal-list {
+  margin: 20px;
+  padding: 10px;
+  width: 400px;
+  min-height: 200px;
+  max-height: 600px;
+  width: 400px;
+  list-style: none;
+  background-color: brown;
+  overflow: scroll;
+}
+.modal-list-element {
+  margin: 8px;
+  padding: 4px;
+  font-size: 24px;
+  background-color: chocolate;
+  color: rgb(255, 255, 255);
+}
+.modal-list-img {
+  width: 50px;
+  height: 50px;
+  background-color: rgb(20, 131, 228);
+}
 .modal .close {
   float: right;
   border: none;
