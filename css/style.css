@@ -14,7 +14,7 @@ main {
 }
 
 .title {
-  font-size: 45px;
+  font-size: 48px;
 }
 
 .wrapper {
@@ -46,22 +46,27 @@ main {
   grid-row: 3;
   grid-row: 1fr;
 }
+.item-container {
+  grid-column: 1/3;
+  grid-row: 4/6;
+  display: grid;
+}
 .item-price {
   grid-column: 1/2;
-  grid-row: 4;
+  grid-row: 1;
 }
 .item-rating {
   grid-column: 2/3;
-  grid-row: 4;
+  grid-row: 1;
 }
 .item-button {
   grid-column: 1/3;
-  grid-row: 5;
+  grid-row: 2;
 }
 
 .item {
-  width: 250px;
-  min-height: 375px;
+  width: 230px;
+  min-height: 230px;
   background-color: rgb(255, 255, 255);
   overflow: hidden;
   border: 2px solid rgb(220, 220, 220);
@@ -69,7 +74,7 @@ main {
 }
 .item .img {
   width: 100%;
-  height: 125px;
+  height: 115px;
 }
 .item .img-full {
   width: 100%;
@@ -79,11 +84,11 @@ main {
 }
 .item-title {
   margin: 0px 10px;
-  font-size: 22.5px;
+  font-size: 24px;
 }
 .item-description {
   margin: 0px 10px;
-  font-size: 15px;
+  font-size: 16px;
 }
 .item-price {
   margin-left: 10px;
@@ -91,7 +96,7 @@ main {
   border-top: 1px solid rgb(140, 140, 140);
   background-color: rgb(220, 220, 220);
   text-align: center;
-  font-size: 15px;
+  font-size: 16px;
 }
 .item-rating {
   margin-right: 10px;
@@ -99,19 +104,23 @@ main {
   border-top: 1px solid rgb(140, 140, 140);
   background-color: rgb(220, 220, 220);
   text-align: center;
-  font-size: 15px;
+  font-size: 16px;
 }
 .item-button {
   margin: 10px;
-  padding: 5px;
+  padding: 8px;
   background-color: rgb(80, 80, 252);
   color: white;
   border: none;
   border-radius: 5px;
-  font-size: 15px;
+  font-size: 16px;
 }
 .item-button:hover {
   background-color: #01014c;
+}
+
+.hide {
+  display: none;
 }
 
 .menu {
@@ -124,25 +133,25 @@ main {
   width: 100%;
 }
 .menu-title {
-  font-size: 30px;
+  font-size: 32px;
 }
 .menu .button-cart {
   padding: 5px 10px;
-  font-size: 15px;
+  font-size: 16px;
   color: white;
   background-color: rgb(33, 70, 33);
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
-.menu .text {
+.menu .text-search {
   padding: 5px 10px;
   border-radius: 5px;
   border: none;
 }
 .menu .button-search {
   padding: 5px 10px;
-  font-size: 15px;
+  font-size: 16px;
   color: rgb(33, 70, 33);
   background-color: white;
   border: 2px solid rgb(33, 70, 33);
@@ -158,30 +167,31 @@ main {
   height: 100%;
   z-index: 100;
   overflow-y: auto;
+  font-size: 20px;
   background-color: rgba(0, 0, 0, 0.6);
 }
 .modal-content {
   padding: 10px;
   background-color: aquamarine;
-  max-width: 500px;
+  max-width: 600px;
   height: 100Vh;
   border: 2px solid black;
 }
 .modal-list {
-  margin: 20px;
+  margin: 10px;
   padding: 10px;
-  width: 400px;
+  max-width: 500px;
   min-height: 200px;
   max-height: 600px;
-  width: 400px;
   list-style: none;
   background-color: brown;
   overflow: scroll;
 }
 .modal-list-element {
-  margin: 8px;
+  margin: 4px;
   padding: 4px;
-  font-size: 24px;
+  display: flex;
+  justify-content: space-between;
   background-color: chocolate;
   color: rgb(255, 255, 255);
 }
@@ -190,14 +200,48 @@ main {
   height: 50px;
   background-color: rgb(20, 131, 228);
 }
+.modal-list-title {
+  width: 120px;
+  text-align: center;
+}
+.modal-list-counter {
+  width: 120px;
+  display: inline-flex;
+  align-items: center;
+}
 .modal .close {
   float: right;
   border: none;
-  font-size: 30px;
   font-weight: bolder;
   background-color: aquamarine;
   color: crimson;
   cursor: pointer;
+}
+.modal .counter-value {
+  width: 30px;
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+}
+.modal .counter-value,
+.modal .counter-price {
+  height: 30px;
+  font: caption;
+  text-align: center;
+  border: none;
+  background-color: white;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.button-minus,
+.button-plus {
+  width: 20px;
+  height: 20px;
+  background-color: black;
+  border-radius: 50%;
+  color: white;
 }
 
 .open {

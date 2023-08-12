@@ -1,6 +1,6 @@
 .item {
   width: $width;
-  min-height: $width * 1.5;
+  min-height: $width ;
   background-color: $primaryColor;
   overflow: hidden;
   border: 2px solid $secondaryColor;
@@ -46,7 +46,7 @@
 
   &-button {
     margin: 10px;
-    padding: $size / 3;
+    padding: $size / 2;
     background-color: rgb(80, 80, 252);
     color: white;
     border: none;
@@ -56,4 +56,8 @@
       background-color: darken($color: rgb(80, 80, 252), $amount: 50%)
     }
   }
+}
+
+.hide {
+  display: none;
 }

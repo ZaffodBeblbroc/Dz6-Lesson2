@@ -7,31 +7,32 @@
   height: 100%;
   z-index: 100;
   overflow-y: auto;
+  font-size: 20px;
   background-color: rgba(0, 0, 0, 0.6);
 
   &-content {
     padding: 10px;
     background-color: aquamarine;
-    max-width: 500px;
+    max-width: 600px;
     height: 100Vh;
     border: 2px solid black;
   }
 
   &-list {
-    margin: 20px;
+    margin: 10px;
     padding: 10px;
-    width: 400px;
+    max-width: 500px;
     min-height: 200px;
     max-height: 600px;
-    width: 400px;
     list-style: none;
     background-color: brown;
     overflow: scroll;
 
     &-element {
-      margin: 8px;
+      margin: 4px;
       padding: 4px;
-      font-size: 24px;
+      display: flex;
+      justify-content: space-between;
       background-color: chocolate;
       color: rgb(255, 255, 255);
     }
@@ -41,17 +42,62 @@
       height: 50px;
       background-color: rgb(20, 131, 228);
     }
+
+    &-title {
+      width: 120px;
+      text-align: center;
+    }
+
+    &-counter {
+      width: 120px;
+      display: inline-flex;
+      align-items: center;
+    }
   }
 
   .close {
     float: right;
     border: none;
-    font-size: 30px;
     font-weight: bolder;
     background-color: aquamarine;
     color: crimson;
     cursor: pointer;
   }
+
+  .counter-value{
+    width: 30px;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+  }
+
+  // .counter-price{
+  //   width: 50px;
+  //   border-top-right-radius: 50%;
+  //   border-bottom-right-radius: 50%;
+  // }
+
+  .counter-value,
+  .counter-price {
+    height: 30px;
+    font: caption;
+    text-align: center;
+    border: none;
+    background-color: white;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+  }
+}
+
+.button-minus,
+.button-plus {
+  width: 20px;
+  height: 20px;
+  background-color: black;
+  border-radius: 50%;
+  color: white;
 }
 
 .open {
