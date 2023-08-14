@@ -3,6 +3,7 @@
   position: fixed;
   left: 0;
   top: 0;
+ 
   width: 100%;
   height: 100%;
   z-index: 100;
@@ -12,32 +13,32 @@
 
   &-content {
     padding: 10px;
-    background-color: aquamarine;
+    padding-top: 120px;
+    background-color: $primaryColor;
     max-width: 600px;
     height: 100Vh;
-    border: 2px solid black;
   }
 
   &-list {
     margin: 10px;
     padding: 10px;
-    max-width: 500px;
-    min-height: 200px;
-    max-height: 600px;
+    max-width: 600px;
+    max-height: 60vh;
     list-style: none;
-    background-color: brown;
+    background-color: $primaryColor;
     overflow: scroll;
 
     &-element {
-      margin: 4px;
       padding: 4px;
       display: flex;
       justify-content: space-between;
-      background-color: chocolate;
-      color: rgb(255, 255, 255);
+      align-items: center;
+      background-color: $primaryColor;      
+      border: 1px solid $tertiaryColor;
     }
 
     &-img {
+      margin-right: 8px;
       width: 50px;
       height: 50px;
       background-color: rgb(20, 131, 228);
@@ -45,11 +46,10 @@
 
     &-title {
       width: 120px;
-      text-align: center;
+      font-size: $size;
     }
 
     &-counter {
-      width: 120px;
       display: inline-flex;
       align-items: center;
     }
@@ -57,47 +57,80 @@
 
   .close {
     float: right;
+    height: $size * 2;
+    width: $size * 2;
+    border-radius: 10px;
     border: none;
     font-weight: bolder;
-    background-color: aquamarine;
-    color: crimson;
-    cursor: pointer;
+    font-size: $size * 1.5;
+    background-color: $secondaryColor;
+    &:hover {
+      background-color: darken($color: $secondaryColor, $amount: 20%);
+    }
+  }
+
+  .total {
+    margin: 20px 0px;
+    float: right;
   }
 
   .counter-value{
     width: 30px;
-    border-top-left-radius: 50%;
-    border-bottom-left-radius: 50%;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
   }
 
-  // .counter-price{
-  //   width: 50px;
-  //   border-top-right-radius: 50%;
-  //   border-bottom-right-radius: 50%;
-  // }
+  .counter-price{
+    width: 60px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+  }
 
   .counter-value,
   .counter-price {
-    height: 30px;
+    height: $size * 2;
     font: caption;
     text-align: center;
     border: none;
-    background-color: white;
-    color: black;
+    background-color: $colorBottum;
+    color: white;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
   }
 }
 
 .button-minus,
 .button-plus {
-  width: 20px;
-  height: 20px;
-  background-color: black;
-  border-radius: 50%;
-  color: white;
+  @include button();
+  width: 30px;
+  font-size: $size * 1.3;
+  background-color: darken($color: $tertiaryColor, $amount: 20%);
+  &:hover {
+    background-color: lighten($color: $tertiaryColor, $amount: 1%);
+  }
+}
+
+.button-delete {
+  @include button();
+  font-size: $size;
+  border-radius: 10px;
+  background-color: red;
+  &:hover {
+    background-color: darken($color: red, $amount: 10%);
+  }
+}
+
+.order {
+  @include button();
+  font-size: $size * 1.8;
+  background-color: $colorBottum;
+  border-radius: 10px;
+  width: 100%;
+  height: $size * 2.5;
+  &:hover {
+    background-color: darken($color: $colorBottum, $amount: 40%);
+  }
 }
 
 .open {

@@ -17,6 +17,10 @@ main {
   font-size: 48px;
 }
 
+button {
+  cursor: pointer;
+}
+
 .wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -48,8 +52,9 @@ main {
 }
 .item-container {
   grid-column: 1/3;
-  grid-row: 4/6;
+  grid-row: 4/5;
   display: grid;
+  align-items: end;
 }
 .item-price {
   grid-column: 1/2;
@@ -65,8 +70,8 @@ main {
 }
 
 .item {
-  width: 230px;
-  min-height: 230px;
+  width: 250px;
+  min-height: 375px;
   background-color: rgb(255, 255, 255);
   overflow: hidden;
   border: 2px solid rgb(220, 220, 220);
@@ -74,7 +79,7 @@ main {
 }
 .item .img {
   width: 100%;
-  height: 115px;
+  height: 125px;
 }
 .item .img-full {
   width: 100%;
@@ -93,7 +98,7 @@ main {
 .item-price {
   margin-left: 10px;
   padding: 0px 0px 20px;
-  border-top: 1px solid rgb(140, 140, 140);
+  border-top: 1px solid rgb(100, 100, 100);
   background-color: rgb(220, 220, 220);
   text-align: center;
   font-size: 16px;
@@ -101,22 +106,25 @@ main {
 .item-rating {
   margin-right: 10px;
   padding: 0px 0px 20px;
-  border-top: 1px solid rgb(140, 140, 140);
+  border-top: 1px solid rgb(100, 100, 100);
   background-color: rgb(220, 220, 220);
   text-align: center;
   font-size: 16px;
 }
 .item-button {
-  margin: 10px;
-  padding: 8px;
-  background-color: rgb(80, 80, 252);
+  height: 32px;
+  padding: 4px;
+  margin: 4px;
   color: white;
   border: none;
+  margin: 10px;
+  padding: 8px;
+  background-color: rgb(50, 50, 255);
   border-radius: 5px;
   font-size: 16px;
 }
 .item-button:hover {
-  background-color: #01014c;
+  background-color: #000065;
 }
 
 .hide {
@@ -131,9 +139,11 @@ main {
   padding: 10px 40px;
   position: fixed;
   width: 100%;
+  z-index: 1000;
 }
 .menu-title {
   font-size: 32px;
+  margin: 8px;
 }
 .menu .button-cart {
   padding: 5px 10px;
@@ -142,10 +152,15 @@ main {
   background-color: rgb(33, 70, 33);
   border: none;
   border-radius: 5px;
-  cursor: pointer;
+}
+.menu .button-cart:hover {
+  background-color: white;
+  color: rgb(33, 70, 33);
+  border: 2px solid rgb(33, 70, 33);
 }
 .menu .text-search {
   padding: 5px 10px;
+  margin: 4px;
   border-radius: 5px;
   border: none;
 }
@@ -156,6 +171,10 @@ main {
   background-color: white;
   border: 2px solid rgb(33, 70, 33);
   border-radius: 5px;
+}
+.menu .button-search:hover {
+  background-color: rgb(33, 70, 33);
+  color: white;
 }
 
 .modal {
@@ -172,64 +191,77 @@ main {
 }
 .modal-content {
   padding: 10px;
-  background-color: aquamarine;
+  padding-top: 120px;
+  background-color: rgb(255, 255, 255);
   max-width: 600px;
   height: 100Vh;
-  border: 2px solid black;
 }
 .modal-list {
   margin: 10px;
   padding: 10px;
-  max-width: 500px;
-  min-height: 200px;
-  max-height: 600px;
+  max-width: 600px;
+  max-height: 60vh;
   list-style: none;
-  background-color: brown;
+  background-color: rgb(255, 255, 255);
   overflow: scroll;
 }
 .modal-list-element {
-  margin: 4px;
   padding: 4px;
   display: flex;
   justify-content: space-between;
-  background-color: chocolate;
-  color: rgb(255, 255, 255);
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(100, 100, 100);
 }
 .modal-list-img {
+  margin-right: 8px;
   width: 50px;
   height: 50px;
   background-color: rgb(20, 131, 228);
 }
 .modal-list-title {
   width: 120px;
-  text-align: center;
+  font-size: 16px;
 }
 .modal-list-counter {
-  width: 120px;
   display: inline-flex;
   align-items: center;
 }
 .modal .close {
   float: right;
+  height: 32px;
+  width: 32px;
+  border-radius: 10px;
   border: none;
   font-weight: bolder;
-  background-color: aquamarine;
-  color: crimson;
-  cursor: pointer;
+  font-size: 24px;
+  background-color: rgb(220, 220, 220);
+}
+.modal .close:hover {
+  background-color: darkgray;
+}
+.modal .total {
+  margin: 20px 0px;
+  float: right;
 }
 .modal .counter-value {
   width: 30px;
-  border-top-left-radius: 50%;
-  border-bottom-left-radius: 50%;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+.modal .counter-price {
+  width: 60px;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
 }
 .modal .counter-value,
 .modal .counter-price {
-  height: 30px;
+  height: 32px;
   font: caption;
   text-align: center;
   border: none;
-  background-color: white;
-  color: black;
+  background-color: rgb(50, 50, 255);
+  color: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -237,11 +269,48 @@ main {
 
 .button-minus,
 .button-plus {
-  width: 20px;
-  height: 20px;
-  background-color: black;
-  border-radius: 50%;
+  height: 32px;
+  padding: 4px;
+  margin: 4px;
   color: white;
+  border: none;
+  width: 30px;
+  font-size: 20.8px;
+  background-color: #313131;
+}
+.button-minus:hover,
+.button-plus:hover {
+  background-color: #676767;
+}
+
+.button-delete {
+  height: 32px;
+  padding: 4px;
+  margin: 4px;
+  color: white;
+  border: none;
+  font-size: 16px;
+  border-radius: 10px;
+  background-color: red;
+}
+.button-delete:hover {
+  background-color: #cc0000;
+}
+
+.order {
+  height: 32px;
+  padding: 4px;
+  margin: 4px;
+  color: white;
+  border: none;
+  font-size: 28.8px;
+  background-color: rgb(50, 50, 255);
+  border-radius: 10px;
+  width: 100%;
+  height: 40px;
+}
+.order:hover {
+  background-color: #000065;
 }
 
 .open {

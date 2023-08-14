@@ -18,7 +18,9 @@
     <div class="menu">
       <h2 class="menu-title">Our Shop</h2>        
       <form action="" method="get">
-        <button class="button-cart">Your cart</button>
+        <button class="button-cart">Your cart
+          <span>0.00$</span>
+        </button>
         <input  class="text-search" name="search" type="search" placeholder="Search">
         <button class="button-search" type="submit">Search</button>
       </form>
@@ -27,7 +29,6 @@
 
   <main>
     <h1 class="title">Our Products</h1>
-    
     <div class="wrapper row justify-content-center">
      
     </div>
@@ -36,10 +37,13 @@
   <div class="modal">
     <div class="modal-content">
       <button class="close">X</button>
-      <h2>Корзина</h2>
-      <ul class="modal-list">
+      <h2>Your order</h2>
+      <ul class="modal-list"> You don't have any items in order.
       </ul>
-      <h2 class="total">Total:</h2>
+      <h2 class="total">Total:
+        <span>0$</span>  
+      </h2>
+      <button class="order">Order</button>
     </div>
   </div>
 </body>

@@ -7,9 +7,11 @@
   padding: 10px 40px;
   position: fixed;
   width: 100%;
+  z-index: 1000;
 
   &-title {
     font-size: $size * 2;
+    margin: 8px;
   }
 
   .button-cart{
@@ -19,11 +21,16 @@
     background-color: $colorMenu;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
+    &:hover {
+      background-color: white;
+      color:  $colorMenu;
+      border: 2px solid $colorMenu;
+    }
   }
 
   .text-search {
     padding: 5px 10px;
+    margin: 4px;
     border-radius: 5px;
     border: none;
   }
@@ -35,5 +42,9 @@
     background-color: white;
     border: 2px solid $colorMenu;
     border-radius: 5px;
+    &:hover {
+      background-color: $colorMenu;
+      color: white;
+    }
   }
 }

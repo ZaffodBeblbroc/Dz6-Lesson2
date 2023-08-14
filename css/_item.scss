@@ -1,6 +1,6 @@
 .item {
   width: $width;
-  min-height: $width ;
+  min-height: $width * 1.5;
   background-color: $primaryColor;
   overflow: hidden;
   border: 2px solid $secondaryColor;
@@ -45,15 +45,14 @@
   }
 
   &-button {
+    @include button();
     margin: 10px;
     padding: $size / 2;
-    background-color: rgb(80, 80, 252);
-    color: white;
-    border: none;
+    background-color: $colorBottum;
     border-radius: 5px;
     font-size: $size;
     &:hover {
-      background-color: darken($color: rgb(80, 80, 252), $amount: 50%)
+      background-color: darken($color: $colorBottum, $amount: 40%);
     }
   }
 }

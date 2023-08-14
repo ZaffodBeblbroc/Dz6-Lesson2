@@ -6,10 +6,19 @@
 
 $primaryColor: rgb(255, 255, 255);
 $secondaryColor: rgb(220, 220, 220);
-$tertiaryColor: rgb(140, 140, 140);
+$tertiaryColor: rgb(100, 100, 100);
 $colorMenu: rgb(33, 70, 33);
-$width: 230px;
+$colorBottum: rgb(50, 50, 255);
+$width: 250px;
 $size: 16px;
+
+@mixin button() {
+  height: $size * 2;
+  padding: 4px;
+  margin: 4px;
+  color: white;
+  border: none;
+}
 
 main {
   max-width: 1200px;
@@ -22,6 +31,10 @@ main {
 
 .title {
   font-size: $size * 3;
+}
+
+button {
+  cursor: pointer;
 }
 
 .wrapper {

@@ -26,13 +26,13 @@ fetch('https://dummyjson.com/products')
    
     for (let i = 0; i < data.products.length; i++) {
       arrayItemButtonCart[i].addEventListener('click', nameItem);
-      arrayItemButtonCart[i].addEventListener('click', qwe);     
+      arrayItemButtonCart[i].addEventListener('click', getBasket); 
+      arrayItemButtonCart[i].addEventListener('click', addClick);  
+      arrayItemButtonCart[i].addEventListener('click', sum);     
     }
 
-    
-
     let price = 0;
-    
+    let img = '';
     let titleText = '';
     const titleArr = [];
     
@@ -46,25 +46,25 @@ fetch('https://dummyjson.com/products')
       for (let i = 0; i < data.products.length; i++) {
         if(data.products[i].title === titleText){
           price = data.products[i].price;
+          img = data.products[i].images[0];
+          console.log(img)
         }
       }
     }
 
-    function qwe () {
-      let num = 3;
+    function getBasket () {
       // Корзина
       const modalList = document.querySelector('.modal-list');
 
       // Мини картинка товара в корзине
-      const modalListElementImg = document.createElement('div');
+      const modalListElementImg = document.createElement('img');
       modalListElementImg.classList.add('modal-list-img');
-      modalListElementImg.textContent = 'Фото';
+      modalListElementImg.src = `${img}`;
 
       // Название товара в корзине
       const modalListTitle = document.createElement('h3');
       modalListTitle.classList.add('modal-list-title');
       modalListTitle.textContent = titleText;
-
       
       const buttonMinus = document.createElement('button');
       buttonMinus.classList.add('button-minus')
@@ -74,11 +74,11 @@ fetch('https://dummyjson.com/products')
       const counterValue = document.createElement('input');
       counterValue.classList.add('counter-value');
       counterValue.setAttribute('type', 'text');
-      counterValue.setAttribute('value', 1);
+      counterValue.setAttribute('value', 0);
       
-      // const counterPrice = document.createElement('div');
-      // counterPrice.classList.add('counter-price')
-      // counterPrice.textContent = `- ${price}`;
+      const counterPrice = document.createElement('div');
+      counterPrice.classList.add('counter-price')
+      counterPrice.textContent = `x ${price}`;
   
       const buttonPlus = document.createElement('button');
       buttonPlus.classList.add('button-plus');
@@ -90,7 +90,7 @@ fetch('https://dummyjson.com/products')
       modalListCounter.append(
         buttonMinus,
         counterValue,
-        // counterPrice,
+        counterPrice,
         buttonPlus
       )
 
@@ -105,7 +105,7 @@ fetch('https://dummyjson.com/products')
         let counter = parseInt(event.target.closest('div').querySelector('.counter-value').value);
         counter++;
         event.target.closest('div').querySelector('.counter-value').value = counter;
-        console.log(counter);
+        sum();
       }
 
       function counterMinus (event) {
@@ -113,7 +113,7 @@ fetch('https://dummyjson.com/products')
         if (counter > 1){
           --counter;
         event.target.closest('div').querySelector('.counter-value').value = counter;
-        console.log(counter);
+        sum();
         }
       }
 
@@ -133,21 +133,48 @@ fetch('https://dummyjson.com/products')
       } 
     }
 
-
-
     // Функция удаления товара из корзины
     function deleteElement(event) {
       const deleteElem = event.target.parentElement;
       const title = deleteElem.querySelector('.modal-list-title').textContent;
       const indexArr = titleArr.indexOf(title);
       titleArr.splice(indexArr, 1)
-      deleteElem.remove();
+      deleteElem.remove()
+      sum();
     } 
 
-
+    // Добавление товара в корзину мк2
+    function addClick() {
+      let titleClick = this.parentElement.parentElement.querySelector('.item-title').textContent;
+      let array = document.querySelectorAll('.modal-list-element');
+     
+      array.forEach(function(elem){
+        let title = elem.querySelector('.modal-list-title').textContent;
+        if (title === titleClick) {
+          let num = elem.querySelector('.counter-value').value;
+          num++;
+          elem.querySelector('.counter-value').value = num;
+        }
+      });
+    }
   });
 
-  // Поиск
+// Сумма покупок
+function sum(){
+  let array = document.querySelectorAll('.modal-list-counter');
+  let sum = 0;
+  array.forEach(function(elem){
+    let value = Number(elem.querySelector('.counter-value').value);
+    let price = Number(elem.querySelector('.counter-price').textContent.slice(2));
+    sum += value * price;
+  });
+  const sumTotal = document.querySelector('.total span');
+  sumTotal.textContent = `${sum}$`;
+  const sumCart = document.querySelector('.button-cart span');
+  sumCart.textContent = `${sum}.00$`;
+}
+
+// Поиск
 document.querySelector('.text-search').oninput = function() {
   let val = this.value.toLowerCase().trim();
   let array = document.querySelectorAll('.wrapper .item .item-title');
