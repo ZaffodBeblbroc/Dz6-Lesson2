@@ -49,11 +49,10 @@ button {
   }
 }
 
+@import "_modal";
 @import "_grids";
 @import "_item";
 @import "_menu";
-@import "_modal";
-
 
 @media screen and (max-width: 1200px) {
   .button-delete {
