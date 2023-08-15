@@ -28,9 +28,10 @@ fetch('https://dummyjson.com/products')
       arrayItemButtonCart[i].addEventListener('click', nameItem);
       arrayItemButtonCart[i].addEventListener('click', getBasket); 
       arrayItemButtonCart[i].addEventListener('click', addClick);  
-      arrayItemButtonCart[i].addEventListener('click', sum);     
+      arrayItemButtonCart[i].addEventListener('click', sum);  
+      arrayItemButtonCart[i].addEventListener('click', minusDisabled);  
     }
-
+    
     let price = 0;
     let img = '';
     let titleText = '';
@@ -106,14 +107,16 @@ fetch('https://dummyjson.com/products')
         counter++;
         event.target.closest('div').querySelector('.counter-value').value = counter;
         sum();
+        minusDisabled();
       }
 
       function counterMinus (event) {
         let counter = parseInt(event.target.closest('div').querySelector('.counter-value').value);
         if (counter > 1){
           --counter;
-        event.target.closest('div').querySelector('.counter-value').value = counter;
-        sum();
+          event.target.closest('div').querySelector('.counter-value').value = counter;
+          sum();
+          minusDisabled();
         }
       }
 
@@ -141,6 +144,7 @@ fetch('https://dummyjson.com/products')
       titleArr.splice(indexArr, 1)
       deleteElem.remove()
       sum();
+      modalElement()
     } 
 
     // Добавление товара в корзину мк2
@@ -159,6 +163,19 @@ fetch('https://dummyjson.com/products')
     }
   });
 
+function minusDisabled() {
+  let arr = document.querySelectorAll('.modal-list-counter');
+  arr.forEach(function(elem) {
+    let value = Number(elem.querySelector('.counter-value').value);
+    let minus = elem.querySelector('.button-minus');
+    if (value === 1) {
+      minus.disabled = true;
+    } else {
+      minus.disabled = false;
+    }
+  });
+}
+
 // Сумма покупок
 function sum(){
   let array = document.querySelectorAll('.modal-list-counter');
@@ -175,23 +192,29 @@ function sum(){
 }
 
 // Поиск
-document.querySelector('.text-search').oninput = function() {
-  let val = this.value.toLowerCase().trim();
-  let array = document.querySelectorAll('.wrapper .item .item-title');
+const textSearch = document.querySelector('.text-search');
+const buttonSearch = document.querySelector('.button-search');
+buttonSearch.addEventListener('click', search);
 
-  if (val !== '') {
-    array.forEach(function(elem){
-       if (elem.innerText.toLowerCase().search(val) === -1) {
+function search(event) {
+  event.preventDefault();
+  let text = textSearch.value.toLowerCase().trim();
+  let array = document.querySelectorAll('.wrapper .item .item-title, .item-description');
+
+  if(text !== '') {
+    array.forEach(function(elem) {
+      if (elem.innerText.toLowerCase().search(text) === -1){
         elem.parentElement.classList.add('hide');
-       } else {
+      } else {
         elem.parentElement.classList.remove('hide');
-       }
+      }
     });
   } else {
     array.forEach(function(elem) {
       elem.parentElement.classList.remove('hide');
-   });
+    });
   }
+  console.log(text);
 }
 
 // Корзина
@@ -202,13 +225,23 @@ const openModal = document.querySelector('.button-cart');
 const modal = document.querySelector('.modal');
 
 // Кнопка закрытия окна
-const closeModal = document.querySelector('.close')
+const closeModal = document.querySelector('.close');
 
 openModal.addEventListener('click',  modalEventOpenClose);
+openModal.addEventListener('click', modalElement);
 closeModal.addEventListener('click', modalEventOpenClose);
 
 // Функция открытия и закрытия модального окна
 function modalEventOpenClose(event) {
   event.preventDefault();
   modal.classList.toggle('open');
+}
+
+function modalElement() {
+  const notOrder = document.querySelector('.not-order');
+  if(document.querySelector('.modal-list-element')){
+    notOrder.classList.add('hide');
+  } else {
+    notOrder.classList.remove('hide');
+  }
 }

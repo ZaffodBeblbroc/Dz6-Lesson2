@@ -177,6 +177,11 @@ button {
   color: white;
 }
 
+@media screen and (max-width: 600px) {
+  .modal-content {
+    max-width: 100vw;
+  }
+}
 .modal {
   display: none;
   position: fixed;
@@ -193,13 +198,13 @@ button {
   padding: 10px;
   padding-top: 120px;
   background-color: rgb(255, 255, 255);
-  max-width: 600px;
+  max-width: 50vw;
   height: 100Vh;
 }
 .modal-list {
   margin: 10px;
   padding: 10px;
-  max-width: 600px;
+  max-width: 100%;
   max-height: 60vh;
   list-style: none;
   background-color: rgb(255, 255, 255);
@@ -220,8 +225,9 @@ button {
   background-color: rgb(20, 131, 228);
 }
 .modal-list-title {
-  width: 120px;
-  font-size: 16px;
+  text-align: left;
+  width: 100%;
+  font-size: 19.2px;
 }
 .modal-list-counter {
   display: inline-flex;
@@ -282,6 +288,10 @@ button {
 .button-plus:hover {
   background-color: #676767;
 }
+.button-minus:disabled,
+.button-plus:disabled {
+  background-color: #676767;
+}
 
 .button-delete {
   height: 32px;
@@ -290,6 +300,8 @@ button {
   color: white;
   border: none;
   font-size: 16px;
+  min-width: -moz-max-content;
+  min-width: max-content;
   border-radius: 10px;
   background-color: red;
 }
@@ -313,6 +325,43 @@ button {
   background-color: #000065;
 }
 
+.not-order {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .open {
   display: block;
+}
+
+@media screen and (max-width: 1200px) {
+  .button-delete {
+    font-size: 14.5454545455px;
+    padding: 2px;
+  }
+  .modal-list-title {
+    font-size: 16px;
+    overflow: hidden;
+  }
+  .modal-content {
+    max-width: 60vw;
+  }
+}
+@media screen and (max-width: 850px) {
+  .button-delete {
+    padding: 0px;
+    min-width: 100px;
+    font-size: 13.3333333333px;
+  }
+  .modal-content {
+    max-width: 80vw;
+  }
+}
+@media screen and (max-width: 650px) {
+  .modal-content {
+    max-width: 100vw;
+  }
 }/*# sourceMappingURL=style.css.map */

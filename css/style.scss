@@ -53,3 +53,39 @@ button {
 @import "_item";
 @import "_menu";
 @import "_modal";
+
+
+@media screen and (max-width: 1200px) {
+  .button-delete {
+    font-size: $size / 1.1;
+    padding: 2px;
+  }
+
+  .modal-list-title {
+    font-size: $size;
+    overflow: hidden;
+  }
+
+  .modal-content {
+    max-width: 60vw;
+  } 
+}
+
+
+@media screen and (max-width: 850px) {
+  .button-delete {
+    padding: 0px;
+    min-width: 100px;
+    font-size: $size / 1.2;
+  }
+  
+  .modal-content {
+    max-width: 80vw;
+  } 
+}
+
+@media screen and (max-width: 650px) {
+  .modal-content {
+    max-width: 100vw;
+  } 
+}
